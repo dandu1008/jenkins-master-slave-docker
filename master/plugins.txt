@@ -1,0 +1,10 @@
+git
+matrix-auth
+workflow-aggregator
+docker-workflow
+blueocean
+credentials-binding
+msbuild:1.29
+mstest:1.0.0
+mstestrunner:1.3.0
+slack
