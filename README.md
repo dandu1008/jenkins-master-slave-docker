@@ -32,7 +32,7 @@ kubectl apply -f k8s
 
 minikube ip
 
-http://<minikube-ip>:8080
+http://minikube-ip:8080
 
 
 Kubernetes Prod Version(DNS SetUp):
@@ -53,6 +53,6 @@ kubectl apply -f k8s
 
 minikube ip
 
-http://<minikube-ip>:8080
+http://minikube-ip:8080
 
 
