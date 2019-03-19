@@ -1,5 +1,7 @@
 #!/bin/bash
 
+kubectl delete -f k8s
+
 docker build -t dandu1008/jenkins-master:latest -t dandu1008/jenkins-master:$SHA -f ./master/Dockerfile ./master
 docker build -t dandu1008/jenkins-slave:latest -t dandu1008/jenkins-slave:$SHA -f ./slave/Dockerfile ./slave
 
