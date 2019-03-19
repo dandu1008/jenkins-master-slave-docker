@@ -8,6 +8,7 @@ env:
     - SHA=$(git rev-parse HEAD)
     # the belowone is to bypass the user prompts of gcloud things
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+    - DNS=""
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in jenkins-k8s-service-account.json.enc -out jenkins-k8s-service-account.json -d

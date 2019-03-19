@@ -11,3 +11,12 @@ kubectl apply -f k8s
 kubectl set image deployments/jenkins-master-deployment jenkins-master=dandu1008/jenkins-master:$SHA
 kubectl set image deployments/jenkins-slave-deployment jenkins-slave=dandu1008/jenkins-slave:$SHA
 
+if [[ -z "$DNS"]]
+then
+  echo "No DNS is Configured"
+else
+  kubectl apply -f k8s_dns #DNS is not empty
+fi   
+
+
+
