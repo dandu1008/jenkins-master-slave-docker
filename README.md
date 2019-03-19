@@ -9,10 +9,13 @@ Prerequisites:
 Docker Has to be up and running in working machine
 Kubernetes Cluster/Minikube - if you want to spin up on kubernetes.
 
+
 Docker-Compose:
 Execute the docker-compose.yaml for dev version. 
 
+
 Kubernetes Dev Version:
+
 Prerequisites: 
 - Helm installation
 
@@ -29,7 +32,9 @@ minikube ip
 
 http://<minikube-ip>:8080
 
+
 Kubernetes Prod Version(DNS SetUp):
+
 Prerequisites: 
 - Helm installation
 
