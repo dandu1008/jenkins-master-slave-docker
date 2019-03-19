@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-slave-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: jenkins-slave
+  template:
+    metadata:
+      labels:
+        component: jenkins-slave
+    spec:
+      volumes:
+        - name: jenkins-slave-workspace
+          persistentVolumeClaim:
+            claimName: jenkins-slave-persistent-vol-claim
+        - name: docker-deamon-from-node
+          hostPath: 
+            path: /var/run/docker.sock # Expose the docker daemon in the container
+      containers:
+        - name: jenkins-slave
+          image: dandu1008/jenkins-slave
+          volumeMounts:
+            - name: jenkins-slave-workspace
+              mountPath: /home/jenkins
+              subPath: jenkins
+            - name: docker-deamon-from-node 
+              mountPath: /var/run/docker.sock # Expose the docker daemon in the container
+          env:
+            - name: JENKINS_URL
+              value: http://jenkins-master-ip-service:8080
+            - name: SLAVE_EXECUTORS
+              value: "2"
+            - name: JENKINS_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: jenkinspass
+                  key: JENKINS_PASS
+    

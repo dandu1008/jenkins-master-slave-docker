@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-master-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: jenkins-master
+  template:
+    metadata:
+      labels:
+        component: jenkins-master
+    spec:
+      containers:
+        - name: jenkins-master
+          image: dandu1008/jenkins-master
+          env:
+            - name: JENKINS_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: jenkinspass
+                  key: JENKINS_PASS
+          ports:
+            - containerPort: 8080
+            - containerPort: 50000
+    
