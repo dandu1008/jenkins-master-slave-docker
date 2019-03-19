@@ -22,7 +22,7 @@ Prerequisites:
 
 steps to follow prior k8s yamls execution:
 
-kubectl create secret generic jenkinspass --from-literal JENKINS_PASS=<password>
+kubectl create secret generic jenkinspass --from-literal JENKINS_PASS="your password"
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml  —> this mandatory for any kind of ingress setup.
 
@@ -43,7 +43,7 @@ Prerequisites:
 
 steps to follow prior k8s yamls execution:
 
-kubectl create secret generic jenkinspass --from-literal JENKINS_PASS=<password>
+kubectl create secret generic jenkinspass --from-literal JENKINS_PASS="your password"
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml  —> this mandatory for any kind of ingress setup.
 
