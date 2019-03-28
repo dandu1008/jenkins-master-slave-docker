@@ -6,6 +6,8 @@ services:
             - '8080:8080'
             - '50000:50000'
         image: dandu1008/jenkins-master
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
     jenkins-slave:
         container_name: jenkins-slave
         restart: always
