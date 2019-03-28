@@ -12,9 +12,16 @@ spec:
       labels:
         component: jenkins-master
     spec:
+      volumes:
+        - name: docker-deamon-from-node
+          hostPath: 
+            path: /var/run/docker.sock # Expose the docker daemon in the container
       containers:
         - name: jenkins-master
           image: dandu1008/jenkins-master
+          volumeMounts:
+            - name: docker-deamon-from-node 
+              mountPath: /var/run/docker.sock # Expose the docker daemon in the container
           env:
             - name: JENKINS_PASS
               valueFrom:
