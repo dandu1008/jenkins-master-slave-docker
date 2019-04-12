@@ -8,7 +8,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 58118E89F3
 RUN echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" > /etc/apt/sources.list.d/docker.list
 RUN apt-get update && apt-get install -y docker-ce --allow-unauthenticated
 
-RUN apt-get update && apt-get install -y openjdk-8-jre curl python python-pip git
+RUN apt-get update && apt-get install -y openjdk-8-jre curl python python-pip git maven
 RUN easy_install jenkins-webapi
 
 # Get docker-compose in the agent container
